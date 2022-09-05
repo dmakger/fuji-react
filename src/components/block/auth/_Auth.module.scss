@@ -1,0 +1,45 @@
+@import "../../../scss/vars";
+
+.block {
+  background-color: $black-light-2;
+  max-width: 700px;
+  border-radius: 35px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 70px 65px 100px;
+}
+
+.title {
+  text-align: center;
+}
+
+.listFields {
+  margin-top: 60px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    &:nth-child(n+2) {
+      margin-top: 35px;
+    }
+  }
+}
+
+.input {
+  margin-top: 5px;
+}
+
+.submit {
+  margin: 35px auto auto;
+}
+
+.navDescription {
+  margin: 10px auto auto;
+
+  &__link {
+    margin-left: 5px;
+  }
+}

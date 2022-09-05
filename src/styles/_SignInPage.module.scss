@@ -1,0 +1,20 @@
+//@import "../scss/variables";
+@import "../scss/vars";
+
+.page {
+  background-color: $black-light-1;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    margin: auto auto 0;
+  }
+
+  .content {
+    margin: 60px auto auto;
+    min-width: 700px;
+  }
+}

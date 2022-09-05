@@ -1,0 +1,19 @@
+@import "../../../../scss/vars";
+
+
+.link {
+  display: flex;
+  font-family: $f-medium;
+  font-size: $fs-14;
+  color: $purple;
+
+  span {
+    border-bottom: 1px solid $empty;
+    padding-bottom: 1px;
+    transition: all .15s linear;
+
+    &:hover {
+      border-color: $purple;
+    }
+  }
+}
