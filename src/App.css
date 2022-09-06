@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Gotham-Black";
-  src: url("./static/font/Gotham/Gotham-Black.ttf");
+  src: url("core/static/font/Gotham/Gotham-Black.ttf");
   font-display: swap;
 }
 @font-face {
   font-family: "Gotham-Bold";
-  src: url("./static/font/Gotham/Gotham-Bold.ttf");
+  src: url("core/static/font/Gotham/Gotham-Bold.ttf");
   font-display: swap;
 }
 @font-face {
   font-family: "Gotham-Medium";
-  src: url("./static/font/Gotham/Gotham-Medium.ttf");
+  src: url("core/static/font/Gotham/Gotham-Medium.ttf");
   font-display: swap;
 }
 

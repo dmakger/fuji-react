@@ -1,0 +1,43 @@
+@import "../core/scss/vars";
+@import "../core/scss/mixins/media";
+
+.block {
+  background-color: $black-light-2;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 35px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 70px 65px 100px;
+}
+
+.title {
+  text-align: center;
+}
+
+.listFields {
+  margin-top: 60px;
+}
+
+.submit {
+  margin: 35px auto auto;
+}
+
+.navDescription {
+  margin: 10px auto auto;
+
+  &__link {
+    margin-left: 5px;
+  }
+}
+
+
+/* Small mobile devices | 480px or less */
+@include sm-mobile {
+  .block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

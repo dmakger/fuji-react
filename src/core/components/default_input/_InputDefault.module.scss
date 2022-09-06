@@ -1,0 +1,12 @@
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &:nth-child(n+2) {
+    margin-top: 35px;
+  }
+  .input {
+    margin-top: 5px;
+  }
+}

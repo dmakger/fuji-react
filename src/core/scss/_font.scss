@@ -1,0 +1,10 @@
+@import "mixins/font-face";
+
+// font-family: 'Gotham-Black', sans-serif
+@include font('Gotham-Black', '../static/font/Gotham/Gotham-Black.ttf');
+
+// font-family: 'Gotham-Bold', sans-serif
+@include font('Gotham-Bold', '../static/font/Gotham/Gotham-Bold.ttf');
+
+// font-family: 'Gotham-Medium', sans-serif
+@include font('Gotham-Medium', '../static/font/Gotham/Gotham-Medium.ttf');

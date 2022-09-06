@@ -1,0 +1,46 @@
+//@import "../scss/variables";
+@import "../../core/scss/vars";
+@import "../../core/scss/mixins/media";
+
+.page {
+  overflow: hidden;
+  background-color: $black-light-1;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    margin: 70px auto 0;
+  }
+
+  .content {
+    margin: auto;
+  }
+}
+
+/* Small tablet devices | 768px or less */
+@include sm-tablets {
+  .page {
+    background-color: $black-light-2;
+
+    .logo {
+      margin-top: 50px;
+    }
+
+    .content {
+      margin: 0;
+    }
+  }
+}
+
+/* Small mobile devices | 480px or less */
+@include sm-mobile {
+  .logo {
+    display: none;
+  }
+  .content {
+    margin: auto !important;
+  }
+}
