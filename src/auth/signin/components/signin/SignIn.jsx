@@ -1,6 +1,6 @@
 import React from 'react';
 
-import clAuth from "../../../_Auth.module.scss"
+import clAuth from "../../../core/components/_Auth.module.scss"
 import clSignIn from "./_SignIn.module.scss"
 
 import H2 from "../../../../core/ui/title/H2/H2";
@@ -24,7 +24,7 @@ const SignIn = ({className}) => {
                     image={emailSVG} type="email" placeholder="fuji@yandex.ru" id="email" required/>
 
                 <InputDefault
-                    title="Придумайте пароль"
+                    title="Введите пароль"
                     image={lockSVG} type="password" placeholder="Пароль" id="password" required />
             </div>
 
@@ -34,7 +34,7 @@ const SignIn = ({className}) => {
 
             <Text14 className={clAuth.navDescription}>
                 Нет аккаунта?
-                <LinkPurple to="#" className={clAuth.navDescription__link}> Зарегистрироваться</LinkPurple>
+                <LinkPurple to="/signup" className={clAuth.navDescription__link}> Зарегистрироваться</LinkPurple>
             </Text14>
         </form>
     );

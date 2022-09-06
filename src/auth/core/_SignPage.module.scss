@@ -1,11 +1,10 @@
-//@import "../scss/variables";
 @import "../../core/scss/vars";
 @import "../../core/scss/mixins/media";
+
 
 .page {
   overflow: hidden;
   background-color: $black-light-1;
-  min-width: 100vw;
   min-height: 100vh;
 
   display: flex;
