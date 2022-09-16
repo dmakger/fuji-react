@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import {useNavigate} from "react-router"
 
 import clAuth from "../../../core/components/_Auth.module.scss"
 import clSignIn from "./_SignIn.module.scss"
@@ -11,21 +12,56 @@ import Text14 from "../../../../core/ui/text/14/Text14";
 import emailSVG from "../../../../core/static/img/email.svg"
 import lockSVG from "../../../../core/static/img/lock.svg"
 import InputDefault from "../../../../core/components/default_input/InputDefault";
+import {getTokenData} from "../../../api/auth";
 
 
 const SignIn = ({className}) => {
+
+    const emailRef = useRef('')
+    const errRef = useRef()
+
+    const [email, setEmail] = useState('')  // email
+    const [pwd, setPwd] = useState('')  // password
+    const [errMsg, setErrMsg] = useState('')  // error message
+
+    //  Очищаем поле с ошибкой, после изменения любого поля
+    useEffect(() => {
+        setErrMsg('');
+    }, [email, pwd])
+
+    const mainUrl = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        let response = getTokenData(email, pwd)
+        response.then(
+            result => {
+                setErrMsg('')
+                return mainUrl('../')
+            },
+            error => {
+                console.log('error')
+                setErrMsg('Неправильный логин или пароль')
+            }
+        );
+    }
+
     return (
-        <form className={[clAuth.block, className].join(" ")}>
+        <form className={[clAuth.block, className].join(" ")} onSubmit={handleSubmit}>
             <H2 className={clAuth.title}>Вход</H2>
+
+            <p ref={errRef} className={[errMsg ? clAuth.messageError : '', clAuth.message].join(" ")} aria-live="assertive">{errMsg}</p>
 
             <div className={clAuth.listFields}>
                 <InputDefault
                     title="Электронная почта (Email)"
-                    image={emailSVG} type="email" placeholder="fuji@yandex.ru" id="email" required/>
+                    image={emailSVG} type="email" placeholder="fuji@yandex.ru" id="email" required
+                    ref={emailRef} onChange={(e) => setEmail(e.target.value)} value={email}/>
 
                 <InputDefault
                     title="Введите пароль"
-                    image={lockSVG} type="password" placeholder="Пароль" id="password" required />
+                    image={lockSVG} type="password" placeholder="Пароль" id="password" required
+                    ref={null} onChange={(e) => setPwd(e.target.value)} value={pwd}/>
             </div>
 
             <LinkPurple to="#" className={clSignIn.navHelp}>Забыли пароль?</LinkPurple>

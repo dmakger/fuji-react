@@ -17,6 +17,21 @@
   text-align: center;
 }
 
+.message {
+  text-align: center;
+  margin-top: 5px;
+  font-size: $fs-18;
+  font-family: $f-bold;
+
+  &Error {
+    color: $red;
+  }
+
+  &Success {
+    color: $green;
+  }
+}
+
 .listFields {
   margin-top: 60px;
 }
