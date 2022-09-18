@@ -1,0 +1,49 @@
+@import "../../../../../../../../../core/scss/vars";
+
+.link {
+  display: flex;
+  padding: 14px 16px;
+  border-radius: 10px;
+  position: relative;
+
+  .image {
+    width: 22px;
+    height: 22px;
+
+    &Active {
+      position: absolute;
+      opacity: 0;
+      transition: all .15s;
+    }
+  }
+
+  .title {
+    font-family: $f-bold;
+    font-size: $fs-16;
+    color: $gray-2;
+    margin: auto auto auto 24px;
+
+    transition: all 0.15s;
+  }
+
+  &:hover {
+    .imageActive {
+      opacity: 1;
+    }
+    .title {
+      color: $white;
+    }
+  }
+}
+
+.active {
+  background: $purple-red-gradient;
+
+  .imageActive {
+    opacity: 1;
+  }
+
+  .title {
+    color: $white;
+  }
+}

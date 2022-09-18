@@ -1,0 +1,32 @@
+@import "../../../../../../../../../core/scss/vars";
+
+.collection {
+  //width: 100%;
+  display: flex;
+  padding: 5px;
+
+  &Image {
+    width: 33px;
+    height: 33px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  &Title {
+    margin: auto auto auto 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: $f-medium;
+    font-size: $fs-16;
+    color: $gray-2;
+
+    transition: all .15s;
+  }
+
+  &:hover {
+    .collectionTitle {
+      color: $white;
+    }
+  }
+}

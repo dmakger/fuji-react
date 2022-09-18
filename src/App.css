@@ -31,3 +31,21 @@ a {
   font-weight: 400;
   color: #969696 !important;
 }
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f9f9fd;
+}
+
+::-webkit-scrollbar:hover {
+  /*width: 10px;*/
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+}

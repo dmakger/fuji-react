@@ -9,7 +9,7 @@ import LinkPurple from "../../../../core/ui/link/purple/LinkPurple";
 import ButtonFillRadiusPurple from "../../../../core/ui/button/fill-radius-purple/ButtonFillRadiusPurple";
 import Text14 from "../../../../core/ui/text/14/Text14";
 import {useNavigate} from "react-router";
-import {register} from "../../../api/auth";
+import {register} from "../../../api/authAPI";
 
 const SignUp = ({className}) => {
 

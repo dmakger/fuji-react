@@ -1,4 +1,4 @@
-import {BASE_URL_API, getHeaders, save} from "../../core/api/main";
+import {BASE_URL_API, getHeaders, save} from "../../core/api/mainAPI";
 
 const LOGIN_URL = 'token/';
 const REGISTER_URL = 'register/';
@@ -21,7 +21,9 @@ async function setUser() {
         .then(async (res) => {
             if (res.status === 200) {
                 const user = await res.json();
-                save('user', user);
+                save('username', user.username);
+                save('path', user.path);
+                save('avatarUrl', user.avatar_url);
                 return Promise.resolve()
             }
             return Promise.reject();

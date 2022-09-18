@@ -12,7 +12,7 @@ import Text14 from "../../../../core/ui/text/14/Text14";
 import emailSVG from "../../../../core/static/img/email.svg"
 import lockSVG from "../../../../core/static/img/lock.svg"
 import InputDefault from "../../../../core/components/default_input/InputDefault";
-import {getTokenData} from "../../../api/auth";
+import {getTokenData} from "../../../api/authAPI";
 
 
 const SignIn = ({className}) => {
@@ -35,11 +35,11 @@ const SignIn = ({className}) => {
         e.preventDefault()
         let response = getTokenData(email, pwd)
         response.then(
-            result => {
+            () => {
                 setErrMsg('')
                 return mainUrl('../')
             },
-            error => {
+            () => {
                 console.log('error')
                 setErrMsg('Неправильный логин или пароль')
             }
