@@ -17,16 +17,14 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-family: $f-medium;
-    font-size: $fs-16;
-    color: $gray-2;
+    color: $gray-2 !important;
 
     transition: all .15s;
   }
 
   &:hover {
     .collectionTitle {
-      color: $white;
+      color: $white !important;
     }
   }
 }

@@ -1,0 +1,16 @@
+@import "../../../../../../../core/scss/vars";
+
+.input {
+  width: 100%;
+  padding: 15px 20px;
+
+  background-color: $black-light-3;
+  border: 2px solid $black-light-3;
+
+  color: $white;
+  font-size: $fs-16;
+  font-family: $f-medium;
+  outline: none;
+
+  transition: all .15s;
+}

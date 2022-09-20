@@ -5,6 +5,7 @@ import cl from './_Catalog.module.scss'
 const Catalog = () => {
     return (
         <MainPageWrapper className={cl.block}>
+
         </MainPageWrapper>
     );
 };

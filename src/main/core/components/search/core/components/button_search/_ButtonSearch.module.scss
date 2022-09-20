@@ -1,0 +1,19 @@
+@import "../../../../../../../core/scss/vars";
+
+
+.buttonSearch {
+  background-color: $black-light-3;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 25px 9px;
+  transition: all .15s;
+
+  &:hover {
+    background-color: $black-light-4;
+  }
+
+  &Image {
+    width: 18px;
+    height: 18px;
+  }
+}

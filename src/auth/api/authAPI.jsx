@@ -24,6 +24,7 @@ async function setUser() {
                 save('username', user.username);
                 save('path', user.path);
                 save('avatarUrl', user.avatar_url);
+                // window.location.reload();
                 return Promise.resolve()
             }
             return Promise.reject();
