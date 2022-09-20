@@ -1,9 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import cl from './_Filter.module.scss';
-import arrowDownSVG from '../../static/img/arrow-down-fill-white.svg'
-
-import Text16B from "../../ui/text/16/bold/Text16B";
-import FilterItem from "./core/components/FilterItem";
+import SelectListItem from "../list/list_item/list_item_select/SelectListItem";
+import ListTitle from "../list/list_title/ListTitle";
 
 
 function useOutsideAlerter(ref, setIsVisibleFilter) {
@@ -42,14 +40,11 @@ const Filter = ({list, defaultValue, setDefaultValue, className, ...props}) => {
 
     return (
         <form ref={box} className={[cl.select, className].join(" ")} {...props}>
-            <div className={cl.selectTitle} data-default={defaultValue.id} onClick={handleClickFilter}>
-                <Text16B>{defaultValue.name}</Text16B>
-                <img src={arrowDownSVG} alt='icon' className={cl.selectTitleImage}/>
-            </div>
+            <ListTitle title={defaultValue.name} onClick={handleClickFilter} />
             <div className={[cl.selectContent, isVisibleFilter ? "" : cl.selectContentActive].join(" ")}>
                 {list.map(item =>
-                    <FilterItem key={item.id} title={item.name} id={item.id} nameInput={filterItemName}
-                                onClick={handleClickFilterItem} activeId={defaultValue.id}/>
+                    <SelectListItem key={item.id} title={item.name} id={item.id} nameInput={filterItemName}
+                                    onClick={handleClickFilterItem} activeId={defaultValue.id}/>
                 )}
             </div>
         </form>

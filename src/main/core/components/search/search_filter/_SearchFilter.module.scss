@@ -1,4 +1,4 @@
-@import "../../../../../../../../../../core/scss/vars";
+@import "../../../../../core/scss/vars";
 
 
 .search {
@@ -7,16 +7,10 @@
   border-radius: 50px;
   display: flex;
   background-color: $black-light-3;
-  //background-color: $black-light-4;
 }
 
 .filter {
   margin: 5px;
-}
-
-.input {
-  //border-left: 1px solid $black-light-4;
-  //border-right: 1px solid $black-light-4;
 }
 
 .lineV {

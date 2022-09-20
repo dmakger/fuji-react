@@ -7,24 +7,6 @@
   background-color: $black-light-3;
   transition: all .15s;
 
-
-  &Title {
-    display: flex;
-    align-items: center;
-    border-radius: 25px;
-    padding: 12px 20px 12px 25px;
-
-    cursor: pointer;
-
-    &:hover {
-      background-color: $black-light-4;
-    }
-
-    &Image {
-      margin-left: 10px;
-    }
-  }
-
   &Content {
     position: absolute;
     top: calc(100% + 10px);

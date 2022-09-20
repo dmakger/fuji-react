@@ -1,0 +1,12 @@
+.check {
+  display: none;
+}
+
+.input {
+  display: none;
+
+  &:checked + .check {
+    display: block;
+    margin-left: 20px;
+  }
+}
