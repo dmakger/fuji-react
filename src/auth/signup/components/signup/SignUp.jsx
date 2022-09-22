@@ -9,7 +9,7 @@ import LinkPurple from "../../../../core/ui/link/purple/LinkPurple";
 import ButtonFillRadiusPurple from "../../../../core/ui/button/fill-radius-purple/ButtonFillRadiusPurple";
 import Text14 from "../../../../core/ui/text/14/Text14";
 import {useNavigate} from "react-router";
-import {register} from "../../../api/authAPI";
+import {logout, register} from "../../../api/authAPI";
 
 const SignUp = ({className}) => {
 
@@ -32,8 +32,7 @@ const SignUp = ({className}) => {
 
         if (pwd !== pwd2) {
             setErrMsg('Пароли не совпадают')
-        }
-        else {
+        } else {
             let response = register(login, email, pwd)
             response.then(
                 () => {
@@ -56,11 +55,14 @@ const SignUp = ({className}) => {
         }
     }
 
+    logout()
+
     return (
         <form className={[clAuth.block, className].join(" ")} onSubmit={handleSubmit}>
             <H2 className={clAuth.title}>Регистрация</H2>
 
-            <p className={[errMsg ? clAuth.messageError : '', clAuth.message].join(" ")} aria-live="assertive">{errMsg}</p>
+            <p className={[errMsg ? clAuth.messageError : '', clAuth.message].join(" ")}
+               aria-live="assertive">{errMsg}</p>
 
             <div className={clAuth.listFields}>
                 <InputDefault
@@ -81,7 +83,9 @@ const SignUp = ({className}) => {
                     onChange={(e) => setPwd2(e.target.value)} value={pwd2}/>
             </div>
 
-            <ButtonFillRadiusPurple type="submit" className={clAuth.submit}>Зарегистрироваться</ButtonFillRadiusPurple>
+            <a className={clAuth.submit} href='/'>
+                <ButtonFillRadiusPurple type="submit">Зарегистрироваться</ButtonFillRadiusPurple>
+            </a>
 
             <Text14 className={clAuth.navDescription}>
                 Есть аккаунт?

@@ -37,7 +37,10 @@
 }
 
 .submit {
-  margin: 35px auto auto;
+  display: flex;
+  width: 100%;
+  margin-top: 35px;
+  justify-content: center;
 }
 
 .navDescription {

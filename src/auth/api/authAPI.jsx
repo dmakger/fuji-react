@@ -46,9 +46,6 @@ export async function getTokenData(email, password){
                 const tokenData = await res.json();
                 saveToken(tokenData); // сохраняем полученный токен в sessionStorage, с помощью функции, заданной ранее
                 return Promise.resolve()
-            } else if (res.status === 401) {
-                await logout()
-                await getTokenData(email, password)
             }
             return Promise.reject();
         })

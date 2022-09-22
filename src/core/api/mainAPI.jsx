@@ -24,3 +24,7 @@ export function getHeaders() {
 export function save(key, value) {
     sessionStorage.setItem(key, value);
 }
+
+export function getImage(src) {
+    return `${BASE_URL}${src}`
+}

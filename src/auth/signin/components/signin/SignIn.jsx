@@ -12,7 +12,7 @@ import Text14 from "../../../../core/ui/text/14/Text14";
 import emailSVG from "../../../../core/static/img/email.svg"
 import lockSVG from "../../../../core/static/img/lock.svg"
 import InputDefault from "../../../../core/components/default_input/InputDefault";
-import {getTokenData} from "../../../api/authAPI";
+import {getTokenData, logout} from "../../../api/authAPI";
 
 
 const SignIn = ({className}) => {
@@ -46,6 +46,8 @@ const SignIn = ({className}) => {
         );
     }
 
+    logout()
+
     return (
         <form className={[clAuth.block, className].join(" ")} onSubmit={handleSubmit}>
             <H2 className={clAuth.title}>Вход</H2>
@@ -66,7 +68,9 @@ const SignIn = ({className}) => {
 
             <LinkPurple to="#" className={clSignIn.navHelp}>Забыли пароль?</LinkPurple>
 
-            <ButtonFillRadiusPurple type="submit" className={clAuth.submit}>Войти</ButtonFillRadiusPurple>
+            <a className={clAuth.submit} href='/'>
+                <ButtonFillRadiusPurple type="submit">Войти</ButtonFillRadiusPurple>
+            </a>
 
             <Text14 className={clAuth.navDescription}>
                 Нет аккаунта?

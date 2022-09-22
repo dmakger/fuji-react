@@ -1,21 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import cl from './_Filter.module.scss';
 import SelectListItem from "../list/list_item/list_item_select/SelectListItem";
 import ListTitle from "../list/list_title/ListTitle";
+import List from "../list/list/List";
+import useOutsideAlerter from "../../service/outsideOnClick";
 
-
-function useOutsideAlerter(ref, setIsVisibleFilter) {
-    useEffect(() => {
-        function handleOutsideClick(e) {
-            if (ref.current && !ref.current.contains(e.target)) {
-                setIsVisibleFilter(false);
-            }
-        }
-
-        document.addEventListener("click", handleOutsideClick);
-        return () => document.removeEventListener("click", handleOutsideClick);
-    }, [ref, setIsVisibleFilter]);
-}
 
 const Filter = ({list, defaultValue, setDefaultValue, className, ...props}) => {
     const filterItemName = 'filterItem'
@@ -41,12 +30,12 @@ const Filter = ({list, defaultValue, setDefaultValue, className, ...props}) => {
     return (
         <form ref={box} className={[cl.select, className].join(" ")} {...props}>
             <ListTitle title={defaultValue.name} onClick={handleClickFilter} />
-            <div className={[cl.selectContent, isVisibleFilter ? "" : cl.selectContentActive].join(" ")}>
+            <List className={[cl.selectContent, isVisibleFilter ? "" : cl.selectContentActive].join(" ")}>
                 {list.map(item =>
                     <SelectListItem key={item.id} title={item.name} id={item.id} nameInput={filterItemName}
                                     onClick={handleClickFilterItem} activeId={defaultValue.id}/>
                 )}
-            </div>
+            </List>
         </form>
     );
 };
