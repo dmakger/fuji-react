@@ -1,7 +1,6 @@
 import cl from '../components/rating/_Rating.module.scss'
 
 export default function getClassNameColor(rating) {
-    console.log(rating)
     if (rating == 0)
         return cl.default
     else if (rating < 3)

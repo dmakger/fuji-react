@@ -1,0 +1,18 @@
+@import "../../../../../scss/vars";
+
+.free {
+  color: $green !important;
+}
+
+.nonFree {
+  display: flex;
+
+  .price {
+    color: $purple;
+  }
+
+  .symbol {
+    color: $purple;
+    margin-top: auto;
+  }
+}

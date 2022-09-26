@@ -1,0 +1,31 @@
+@import "../../../../../../scss/vars";
+
+.course {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 25px;
+  width: 380px;
+
+  .author {
+    color: $red;
+    margin-top: 20px;
+  }
+
+  .description {
+    text-align: center;
+    //margin: auto;
+    margin-top: 10px;
+    //max-height: 114px;
+    //overflow-y: hidden;
+    //text-overflow: ellipsis;
+  }
+
+  .mainInfo {
+    margin-top: 15px;
+  }
+
+  .otherInfo {
+    margin-bottom: 20px;
+  }
+}

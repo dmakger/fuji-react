@@ -6,10 +6,14 @@ import getClassNameColor from "../../../../../service/rating";
 
 const Rating = ({className, rating, ...props}) => {
     let classNameColor = getClassNameColor(rating)
+    let ratingText = rating
+    if (ratingText == 0) {
+        ratingText = 'Нет оценок'
+    }
 
     return (
         <div className={[cl.block, classNameColor, className].join(' ')} {...props}>
-            <Text16B className={[cl.title, clColor.title].join(' ')}>{rating}</Text16B>
+            <Text16B className={[cl.title, clColor.title].join(' ')}>{ratingText}</Text16B>
         </div>
     );
 };

@@ -50,3 +50,14 @@ export const getNumber = (number) => {
     }
     return `${integer}${symbol}`
 }
+
+/**
+ *
+ * */
+export const getWatch = (minutes) => {
+    if (minutes === 0)
+        return 0
+    else if (minutes < 3)
+        return '0.1'
+    return (minutes / 60).toFixed(1);
+}

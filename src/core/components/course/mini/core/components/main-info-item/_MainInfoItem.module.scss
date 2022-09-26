@@ -1,0 +1,16 @@
+.info {
+  display: flex;
+
+  &:nth-child(n+2) {
+    margin-left: 25px;
+  }
+
+  &Image {
+    width: 22px;
+    height: 22px;
+  }
+
+  &Title {
+    margin-left: 10px;
+  }
+}
