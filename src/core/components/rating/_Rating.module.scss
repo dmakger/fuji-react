@@ -1,0 +1,33 @@
+@import "../../scss/vars";
+
+.green {
+  background-color: $green_20;
+
+  .title {
+    color: $green;
+  }
+}
+
+.yellow {
+  background-color: $yellow_20;
+
+  .title {
+    color: $yellow;
+  }
+}
+
+.red {
+  background-color: $red_20;
+
+  .title {
+    color: $red;
+  }
+}
+
+.default {
+  background-color: $black-light-4;
+
+  .title {
+    color: $gray-1;
+  }
+}

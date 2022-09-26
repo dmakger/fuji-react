@@ -76,7 +76,8 @@ export async function register(username, email, password){
 
 
 export async function logout(){
-    sessionStorage.removeItem('access')
-    sessionStorage.removeItem('refresh')
-    sessionStorage.removeItem('user')
+    sessionStorage.clear()
+    // sessionStorage.removeItem('access')
+    // sessionStorage.removeItem('refresh')
+    // sessionStorage.removeItem('user')
 }

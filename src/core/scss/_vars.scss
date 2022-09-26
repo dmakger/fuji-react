@@ -4,10 +4,13 @@ $f-bold: 'Gotham-Bold', sans-serif;
 $f-medium: 'Gotham-Medium', sans-serif;
 
 // Font size
+$fs-36: 36px;
 $fs-32: 32px;
+$fs-20: 20px;
 $fs-18: 18px;
 $fs-16: 16px;
 $fs-14: 14px;
+$fs-12: 12px;
 
 // Color
 $black-light-1: #1A1A1A;
@@ -25,7 +28,16 @@ $purple: #7B61FF;
 $purple-2: #593BF3;
 
 $red: #FF5252;
+$red_20: rgba($red, 0.2);
+
 $green: #2ED573;
+$green_20: rgba($green, 0.2);
+
+$yellow: #FFC312;
+$yellow_20: rgba($yellow, 0.2);
+
+$black: #000;
+$black_70: rgba($black, 0.7);
 
 
 $purple-red-gradient: linear-gradient(90deg, rgba(123,97,255,1) 0%, rgba(255,82,82,1) 100%);

@@ -1,0 +1,12 @@
+@import "../../../../../scss/vars";
+
+.block {
+  display: flex;
+  border-radius: 10px;
+
+  .title {
+    padding: 6px 10px;
+    display: flex;
+  }
+}
+

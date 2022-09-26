@@ -18,6 +18,7 @@ import SideBarNav from "./components/side_bar_nav/SideBarNav";
 import {createCollection, getCollectionProfile} from "../../../../../api/collectionAPI";
 import SideBarCollection from "./components/side_bar_collection/SideBarCollection";
 import {BASE_URL} from "../../../../../../../core/api/mainAPI";
+import {COLLECTION_URL} from "../../../../../../../core/service/urls";
 
 class SideBar extends Component {
 
@@ -48,28 +49,57 @@ class SideBar extends Component {
                     id: 'archive',
                 }
             ],
+            setCollectionList: props.setCollectionList,
+            collectionList: props.collectionList,
+            lastLengthCollection: 0,
             error: false,
             isLoaded: false,
-            collectionList: [],
+            flagUpdate: false,
         }
     }
 
+    _isLocalList() {
+        return this.props.collectionList !== undefined
+    }
+
     componentDidMount() {
+        if (!this._isLocalList()) {
+            this.updateCollectionProfile()
+        }
+    }
+
+    _needToUpdate(length) {
+        if (length !== this.state.lastLengthCollection) {
+            this.setState({
+                flagUpdate: true,
+                lastLengthCollection: length
+            })
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this._needToUpdate(this.props.collectionList.length)
+        if (this.state.flagUpdate) {
+            this.setState({
+                flagUpdate: false,
+                collectionList: prevProps.collectionList
+            })
+        }
+    }
+
+    updateCollectionProfile() {
         getCollectionProfile()
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        collectionList: result.results.reverse()
-                    })
-                },
-                () => {
-                    this.setState({
-                        isLoaded: true,
-                        error: true
-                    })
-                }
-            )
+            .then((result) => {
+                this.setState({
+                    isLoaded: true,
+                    collectionList: result.results
+                })
+            }, () => {
+                this.setState({
+                    isLoaded: true,
+                    error: true
+                })
+            })
     }
 
     createCollection = async () => {
@@ -79,20 +109,28 @@ class SideBar extends Component {
             path: res.path,
             image_url: res.image_url,
         }
-        this.setState({
-            collectionList: [newCollection, ...this.state.collectionList]
-        })
+        this.addCollection(newCollection)
+    }
+
+    addCollection = (newCollection) => {
+        if (this.state.setCollectionList !== undefined) {
+            this.state.setCollectionList([newCollection, ...this.state.collectionList])
+        } else {
+            this.setState({
+                collectionList: [newCollection, ...this.state.collectionList]
+            })
+        }
     }
 
 
     render() {
         const {error, collectionList, sideBarData} = this.state;
 
-        let collectionListHTML = [];
+        let collectionListHTML = collectionList;
         if (!error) {
             collectionListHTML = collectionList.map(
                 item => (
-                    <SideBarCollection key={item.path} to={item.path} image={BASE_URL + item.image_url}
+                    <SideBarCollection key={item.path} to={`${COLLECTION_URL}/${item.path}`} image={BASE_URL + item.image_url}
                                        title={item.title}/>
                 )
             );
@@ -125,5 +163,9 @@ class SideBar extends Component {
         );
     }
 }
+
+// SideBar.defaultProps = {
+//     collectionList: []
+// }
 
 export default SideBar;

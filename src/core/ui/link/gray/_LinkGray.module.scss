@@ -1,0 +1,15 @@
+@import "../../../scss/vars";
+
+.link {
+  display: flex;
+
+  &Title {
+    color: $gray-2;
+    border-bottom: 2px solid $empty;
+    transition: all .15s;
+
+    &:hover {
+      border-color: $gray-2;
+    }
+  }
+}

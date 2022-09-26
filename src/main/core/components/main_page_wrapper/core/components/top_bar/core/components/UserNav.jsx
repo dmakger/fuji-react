@@ -13,10 +13,12 @@ const UserNav = ({className}) => {
 
     const listMenu = [
         {
+            id: 1,
             title: 'Преподавание',
             to: '#',
         },
         {
+            id: 2,
             title: 'Настройки',
             to: '#',
         },
@@ -39,10 +41,10 @@ const UserNav = ({className}) => {
                     <img src={imageUser} alt="icon" className={cl.userImage}/>
                 </LinkListItem>
                 {listMenu.map(item =>
-                    <LinkListItem to={item.to} title={item.title} />
+                    <LinkListItem key={item.id} to={item.to} title={item.title} />
                 )}
 
-                <LinkListItem to='/signin' title='Выйти' onClick={logout} className={cl.menuSignOut} />
+                <LinkListItem to='/signin' title='Выйти' onClick={logout} />
             </List>
         </div>
     );
