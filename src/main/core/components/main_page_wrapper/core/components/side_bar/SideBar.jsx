@@ -51,40 +51,33 @@ class SideBar extends Component {
             ],
             setCollectionList: props.setCollectionList,
             collectionList: props.collectionList,
-            lastLengthCollection: 0,
             error: false,
             isLoaded: false,
-            flagUpdate: false,
         }
     }
 
-    _isLocalList() {
-        return this.props.collectionList !== undefined
+    _isGlobalList() {
+        return this.props.setCollectionList !== undefined
     }
 
     componentDidMount() {
-        if (!this._isLocalList()) {
+        if (!this._isGlobalList()) {
             this.updateCollectionProfile()
         }
     }
 
-    _needToUpdate(length) {
-        if (length !== this.state.lastLengthCollection) {
-            this.setState({
-                flagUpdate: true,
-                lastLengthCollection: length
-            })
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.collectionList.length !== this.state.collectionList.length) {
+            this._setCollectionList(this.props.collectionList)
         }
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        this._needToUpdate(this.props.collectionList.length)
-        if (this.state.flagUpdate) {
-            this.setState({
-                flagUpdate: false,
-                collectionList: prevProps.collectionList
-            })
-        }
+    _setCollectionList(list) {
+        if (this._isGlobalList())
+            this.state.setCollectionList(list)
+        this.setState({
+            collectionList: this.props.collectionList
+        })
     }
 
     updateCollectionProfile() {
@@ -113,7 +106,7 @@ class SideBar extends Component {
     }
 
     addCollection = (newCollection) => {
-        if (this.state.setCollectionList !== undefined) {
+        if (this._isGlobalList()) {
             this.state.setCollectionList([newCollection, ...this.state.collectionList])
         } else {
             this.setState({
@@ -164,8 +157,8 @@ class SideBar extends Component {
     }
 }
 
-// SideBar.defaultProps = {
-//     collectionList: []
-// }
+SideBar.defaultProps = {
+    collectionList: []
+}
 
 export default SideBar;

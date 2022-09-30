@@ -16,11 +16,22 @@ class Catalog extends Component {
     }
 
     componentDidMount() {
-        this.updateCollectionList()
-        this.updateCatalogList()
+        this.setProfile()
+        this.setCatalog()
     }
 
-    updateCatalogList = () => {
+    setProfile() {
+        getCollectionProfile()
+            .then((result) => {
+                this._setAddedCollectionList(result.results)
+            }, () => {
+                this.setState({
+                    error: true
+                })
+            })
+    }
+
+    setCatalog() {
         getCatalog()
             .then((result) => {
                 this.setState({
@@ -33,18 +44,7 @@ class Catalog extends Component {
             })
     }
 
-    updateCollectionList = () => {
-        getCollectionProfile()
-            .then((result) => {
-                this.setAddedCollectionList(result.results)
-            }, () => {
-                this.setState({
-                    error: true
-                })
-            })
-    }
-
-    setAddedCollectionList = (list) => {
+    _setAddedCollectionList = (list) => {
         this.setState({
             addedCollectionList: list,
         })
@@ -56,19 +56,14 @@ class Catalog extends Component {
         if (!error) {
             collectionListHTML = collectionList.map(item => (
                 <CollectionBig key={item.path}
-                               path={item.path}
-                               title={item.title}
-                               image={item.image_url}
-                               author={item.author}
-                               rating={item.rating}
-                               courses={item.courses}
+                               collection={item}
                                addedCollectionList={addedCollectionList}
-                               setAddedCollectionList={this.setAddedCollectionList} />
+                               setAddedCollectionList={this._setAddedCollectionList} />
             ));
         }
 
         return (
-            <MainPageWrapper className={cl.block} collectionList={addedCollectionList} setCollectionList={this.setAddedCollectionList} >
+            <MainPageWrapper className={cl.block} collectionList={addedCollectionList} setCollectionList={this._setAddedCollectionList} >
                 {collectionListHTML}
             </MainPageWrapper>
         );

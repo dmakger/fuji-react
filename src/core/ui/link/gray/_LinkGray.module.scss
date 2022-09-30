@@ -4,7 +4,7 @@
   display: flex;
 
   &Title {
-    color: $gray-2;
+    color: $gray-2 !important;
     border-bottom: 2px solid $empty;
     transition: all .15s;
 

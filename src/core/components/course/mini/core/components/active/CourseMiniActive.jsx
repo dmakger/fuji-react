@@ -37,15 +37,19 @@ const CourseMiniActive = ({course, className, ...props}) => {
             // title: getWatch(10000) + 'h'
         },
     ]
+
+    const existsDescription = course.description.length > 0
+
     return (
-        <Link to={`${COURSE_URL}/${course.path}`} className={[cl.course, clCommon.course, className].join(" ")} {...props}>
+        <Link to={`${COURSE_URL}/${course.path}`}
+              className={[cl.course, clCommon.course, existsDescription ? '' : cl.empty, className].join(" ")} {...props}>
             <Text14 className={[cl.author, clCommon.author].join(" ")}>{course.author.username}</Text14>
             <H3 className={[cl.title, clCommon.title].join(" ")}>{course.title}</H3>
             <Text16Book className={cl.description}>{course.description}</Text16Book>
 
             <div className={[clCommon.mainInfo, cl.mainInfo].join(" ")}>
                 {info.map(item =>
-                    <MainInfoItem key={item.id} image={item.image} title={item.title} />
+                    <MainInfoItem key={item.id} image={item.image} title={item.title}/>
                 )}
             </div>
 

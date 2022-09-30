@@ -1,54 +1,15 @@
 @import "../../../scss/vars";
 
-.collection {
-  width: 100%;
-
+.block {
   &:nth-child(n+2) {
     margin-top: 45px;
   }
 
-  .info {
+  .collection {
+    width: 100%;
     display: flex;
 
-    .image {
-      width: 85px;
-      height: 85px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    &Text {
-      margin: auto 0 auto 20px;
-
-      .title {
-        border-bottom: 3px solid $empty;
-        transition: all .15s;
-
-        &:hover {
-          border-bottom: 3px solid $white;
-        }
-      }
-
-      .author {
-      }
-    }
-
-    &Nav {
-      display: flex;
-      margin-bottom: auto;
-
-      .rating {
-        margin-top: 13px;
-        margin-left: 15px;
-      }
-
-      .addCollection {
-        margin-left: 15px;
-        margin-top: 17px;
-      }
-    }
-
-    &Link {
+    .link {
       margin: 16px 0 auto auto;
     }
   }
@@ -60,4 +21,5 @@
     grid-template-columns: repeat(auto-fill, 310px);
     grid-gap: 20px;
   }
+
 }

@@ -5,13 +5,12 @@ import CourseMiniActive from "./core/components/active/CourseMiniActive";
 
 
 const CourseMini = ({course, className, ...props}) => {
-
     return (
         <div className={cl.course}>
             <CourseMiniPreview className={cl.preview} course={course} {...props}/>
             <div className={cl.activeWrapper}>
-                <div className={cl.blur} />
-                <CourseMiniActive course={course} {...props}/>
+                <div className={cl.blur}/>
+                <CourseMiniActive className={cl.active} course={course} {...props}/>
             </div>
         </div>
     );

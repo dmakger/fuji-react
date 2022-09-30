@@ -21,23 +21,40 @@
 
     opacity: 0;
     z-index: -1;
-    transition: all .3s;
+    transition: all .3s ease-in-out;
 
     .blur {
       position: absolute;
       z-index: -1;
+      //opacity: 0;
       border-radius: 20px;
       //backdrop-filter: blur(10px);
-      background-color: $purple-2;
+      background: $blue-pink-gradient;
+      //background: linear-gradient(-135deg, $purple 0%, $red 100%);
+      //background: $purple-red-gradient;
+      //background-color: $purple-2;
       width: 310px;
       height: 100%;
 
-      //transition: all .3s;
+      transition: all .3s;
+    }
+
+    .active {
+      box-shadow: 0 0 8px 5px $black_25;
+      //opacity: 0;
+
+      transition: all .3s;
     }
   }
 
   &:hover .activeWrapper {
     z-index: 5;
     opacity: 1;
+    //transition: .3s;
+
+    //.blur,
+    //.active{
+    //  opacity: 1;
+    //}
   }
 }
